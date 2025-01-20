@@ -1,10 +1,6 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My app</title>
-</head>
-<body>
+    {% extends "main.html" %}
+    {% block title %} info {% endblock %}
+
     <h1>Info</h1>
     <ul>
         {% for x in info %}

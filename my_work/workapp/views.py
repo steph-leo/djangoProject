@@ -4,17 +4,29 @@ from django.template import loader
 from .models import Workapp
 # Create your views here
 def workapp(request):
-    info = Workapp.objects.all().values()
+    app = Workapp.objects.all().values()
     template = loader.get_template("index.html")
     context = {
-        'info': info ,
+        'app': app,
     }
     return HttpResponse(template.render(request, context))
 
 def details(request, id):
-    info = Workapp.objects.get(id=id)
+    det = Workapp.objects.get(id=id)
     template = loader.get_template("details.html")
     context = {
-        'info' : info,
+        'det' : det,
     }
     return HttpResponse(template.randeer(context, request))
+
+def info(request, id):
+    data = Workapp.objects.get(id=id)
+    template = loader.get_template("ifo.html")
+    context = {
+        "data" : data,
+    }
+    return HttpResponse(template.render(context, request))
+
+def main(request):
+    template =loader.get_template('main.html')
+    return HttpResponse(template.render(request))
